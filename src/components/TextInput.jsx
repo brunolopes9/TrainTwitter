@@ -5,14 +5,20 @@ export default function TextInput({
   maxLength,
   ...props
 }) {
+  const [contador, setContador] = useState(0)
+
   return (
     <div>
       <textarea
         className={styles.input}
         placeholder={placeholder}
         maxLength={maxLength}
+        onChange={onTextChange}
         {...props}
       />
+      <p>
+        {contador} / {maxLength}
+      </p>
     </div>
   )
 }
