@@ -20,26 +20,38 @@ export default function Index() {
 
   return (
     <div>
-      <h1> TrainTweet </h1>
-      <div>
-        <img src={"https://github.com/brunolopes9.png"} alt=""></img>
+      <h1 className={styles.pageTitle}> TrainTweet </h1>
+
+      <div className={styles.tweetContainer}>
+        <img
+          src={"https://github.com/brunolopes9.png"}
+          className={styles.avatar}
+        />
         <TextInput
           placeholder={"What's going on?"}
+          rows={3}
           maxLength={maxLength}
           value={text}
           onChange={onTextChange}
         />
       </div>
-      <div>
+      <div className={styles.buttonContainer}>
         <div>
-          {text.length} / {maxLength}{" "}
+          {text.length} / {maxLength}
         </div>
-        <button onClick={sendTweet}> Send </button>
+        <button onClick={sendTweet} className={styles.postButton}>
+          {" "}
+          Tweet{" "}
+        </button>
       </div>
 
       <ul>
         {tweetList.map((tweet) => {
-          return <Tweet children={tweet} />
+          return (
+            <li>
+              <Tweet children={tweet} />
+            </li>
+          )
         })}
       </ul>
     </div>

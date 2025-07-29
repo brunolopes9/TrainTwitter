@@ -1,10 +1,7 @@
 export default function Tweet(props) {
   return (
-    <div classname={StyleSheet.tweetContainer}>
-      <img
-        src={"https://github.com/brunolopes9.png"}
-        alt="Bruno's Profile Photo"
-      />
+    <div className={styles.tweetContainer}>
+      <img src={"https://github.com/brunolopes9.png"} />
       <div className={styles.user}>
         <span> Bruno Lopes </span>
         <span> @brunolopes</span>
