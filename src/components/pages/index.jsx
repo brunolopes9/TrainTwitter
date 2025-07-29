@@ -45,10 +45,10 @@ export default function Index() {
         </button>
       </div>
 
-      <ul>
+      <ul className={styles.tweetList}>
         {tweetList.map((tweet) => {
           return (
-            <li>
+            <li className={styles.tweetListItem}>
               <Tweet children={tweet} />
             </li>
           )
