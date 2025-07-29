@@ -27,3 +27,8 @@
 .date {
   color: var(--secondary-text);
 }
+
+.tweetText {
+  grid-area: text;
+  color: var(--primary-text);
+}
