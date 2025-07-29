@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styles from "./TextInput.module.css"
 
 export default function TextInput({
@@ -5,7 +6,11 @@ export default function TextInput({
   maxLength,
   ...props
 }) {
-  const [contador, setContador] = useState(0)
+  const [tweetList, setTweetList] = useState([])
+
+  function sendTweet(event) {
+    setTweetList([...tweetList, text])
+  }
 
   return (
     <div>
@@ -13,12 +18,17 @@ export default function TextInput({
         className={styles.input}
         placeholder={placeholder}
         maxLength={maxLength}
+        value={text}
         onChange={onTextChange}
         {...props}
       />
       <p>
-        {contador} / {maxLength}
+        {text.length} / {maxLength}
       </p>
+      <button onClick={sendTweet}>Enviar </button>
+      {tweetList.map((tweet) => {
+        return <p> {tweet}</p>
+      })}
     </div>
   )
 }

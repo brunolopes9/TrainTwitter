@@ -1,10 +1,11 @@
-import TextInput from "./components/TextInput"
 import styles from "./App.module.css"
+import Index from "./components/pages/index"
+import TextInput from "./components/TextInput"
 
 function App() {
   return (
     <div className={styles.appContainer}>
-      <TextInput placeholder={"What's Happening?"} maxLength={125} />
+      <Index />
     </div>
   )
 }
