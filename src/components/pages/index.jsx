@@ -1,22 +1,18 @@
 import TextInput from "../TextInput"
-import { useState } from "react"
 import Tweet from "../Tweet"
+import styles from "./Index.module.css"
+import { useIndex } from "../../hooks/useIndex.page"
 
 export default function Index() {
-  const [text, setText] = useState("")
-  const maxLength = 125
-  const [tweetList, setTweetList] = useState([])
-
-  function onTextChange(event) {
-    const text = event.target.value
-    if (text.length <= maxLength) {
-      setText(text)
-    }
-  }
-
-  function sendTweet(event) {
-    setTweetList([...tweetList, text])
-  }
+  const {
+    text,
+    onTextChange,
+    maxLength,
+    sendTweet,
+    tweetList,
+    deleteTweet,
+    toggleLike,
+  } = useIndex()
 
   return (
     <div>
@@ -39,20 +35,26 @@ export default function Index() {
         <div>
           {text.length} / {maxLength}
         </div>
-        <button onClick={sendTweet} className={styles.postButton}>
-          {" "}
-          Tweet{" "}
+        <button
+          onClick={sendTweet}
+          className={styles.postButton}
+          disabled={text.length === 0}
+        >
+          Tweet
         </button>
       </div>
 
       <ul className={styles.tweetList}>
-        {tweetList.map((tweet) => {
-          return (
-            <li className={styles.tweetListItem}>
-              <Tweet children={tweet} />
-            </li>
-          )
-        })}
+        {tweetList.map((tweet, index) => (
+          <li key={index} className={styles.tweetListItem}>
+            <Tweet
+              tweet={tweet}
+              index={index}
+              onDelete={deleteTweet}
+              onToggleLike={toggleLike}
+            />
+          </li>
+        ))}
       </ul>
     </div>
   )

@@ -1,6 +1,5 @@
 import styles from "./App.module.css"
-import Index from "./components/pages/index"
-import TextInput from "./components/TextInput"
+import Index from "./components/pages/Index"
 
 function App() {
   return (
