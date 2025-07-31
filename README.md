@@ -21,7 +21,9 @@ TrainTwitter is a mini-clone of Twitter made with **React + Vite**, created with
 
 ## 🖼️ Project
 
-<img src ="/screenshots/t1.png> 
+<img src ="/screenshots/t1.png"> 
+<img src ="/screenshots/t2.png"> 
+<img src ="/screenshots/t3.png"> 
 
 ---
 
